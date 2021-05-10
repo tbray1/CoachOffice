@@ -10,18 +10,11 @@ const PlayerSchema = mongoose.Schema({
     required: true,
   },
   jersey: {
-    type: String,
+    type: Number,
     required: false,
     unique: true,
   },
-  height: {
-    type: String,
-    required: false,
-  },
-  weight: {
-    type: String,
-    required: false,
-  },
+
   position: {
     type: String,
     required: false,

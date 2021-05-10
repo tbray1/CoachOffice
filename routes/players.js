@@ -36,13 +36,11 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { name, jersey, height, weight, position, year } = req.body;
+    const { name, jersey, position, year } = req.body;
     try {
       const newPlayer = new Player({
         name,
         jersey,
-        height,
-        weight,
         position,
         year,
         user: req.user.id,
@@ -61,14 +59,13 @@ router.post(
 //@desc       updateplayer
 //@access     Private
 router.put("/:id", auth, async (req, res) => {
-  const { name, jersey, height, weight, position, year } = req.body;
+  const { name, jersey, position, year } = req.body;
 
   //Build player object
   const playerFields = {};
   if (name) playerFields.name = name;
   if (jersey) playerFields.jersey = jersey;
-  if (height) playerFields.height = height;
-  if (weight) playerFields.weight = weight;
+
   if (position) playerFields.position = position;
   if (year) playerFields.year = year;
 
