@@ -14,7 +14,7 @@ const PlayerForm = () => {
         name: "",
         jersey: "",
         position: "",
-        year: "Freshman",
+        year: "",
       });
     }
   }, [playerContext, current]);
@@ -26,7 +26,7 @@ const PlayerForm = () => {
     year: "",
   });
 
-  const { name, jersey, position, year } = player;
+  const { name, jersey } = player;
 
   const onChange = (e) =>
     setPlayer({ ...player, [e.target.name]: e.target.value });
@@ -67,23 +67,16 @@ const PlayerForm = () => {
         onChange={onChange}
       />
       <h4>Position</h4>
-      <select>
-        <option name="position" value="PG" onChange={onChange}>
-          Point Guard
-        </option>
-        <option name="position" value="SG" onChange={onChange}>
-          Shooting Guard
-        </option>
-        <option name="position" value="SF" onChange={onChange}>
-          Small Forward
-        </option>
-        <option name="position" value="PF" onChange={onChange}>
-          Power Forward
-        </option>
-        <option name="position" value="C" onChange={onChange}>
-          Center
-        </option>
-      </select>
+      <input
+        type="radio"
+        name="position"
+        value="PG"
+        onChange={onChange}
+      /> PG{" "}
+      <input type="radio" name="position" value="SG" onChange={onChange} /> SG{" "}
+      <input type="radio" name="position" value="SF" onChange={onChange} /> SF{" "}
+      <input type="radio" name="position" value="PF" onChange={onChange} /> PF{" "}
+      <input type="radio" name="position" value="C" onChange={onChange} /> C{" "}
       <h4>Year</h4>
       <input
         type="radio"

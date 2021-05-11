@@ -39,7 +39,9 @@ ul {
 img {
   width: 100%;
 }
-
+small {
+  font-size: 12px;
+}
 /* Utilities */
 .container {
   max-width: 1100px;

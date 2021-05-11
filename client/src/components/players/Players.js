@@ -1,5 +1,5 @@
-import React, { Fragment, useContext, useEffect } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React, { useContext, useEffect } from "react";
+import { motion } from "framer-motion";
 import PlayerItem from "./PlayerItem";
 import Spinner from "../layout/Spinner";
 import PlayerContext from "../../context/player/playerContext";
@@ -19,25 +19,37 @@ const Players = () => {
   }
 
   return (
-    <Fragment>
+    <>
       {players !== null && !loading ? (
-        <TransitionGroup>
+        <>
           {filtered !== null
             ? filtered.map((player) => (
-                <CSSTransition key={player._id} timeout={500} classNames="item">
+                <motion.div
+                  key={player._id}
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
                   <PlayerItem player={player} />
-                </CSSTransition>
+                </motion.div>
               ))
             : players.map((player) => (
-                <CSSTransition key={player._id} timeout={500} classNames="item">
+                <motion.div
+                  key={player._id}
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
                   <PlayerItem player={player} />
-                </CSSTransition>
+                </motion.div>
               ))}
-        </TransitionGroup>
+        </>
       ) : (
         <Spinner />
       )}
-    </Fragment>
+    </>
   );
 };
 

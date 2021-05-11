@@ -11,7 +11,7 @@ import {
   CLEAR_PLAYERS,
 } from "../types";
 
-export default (state, action) => {
+const playerReducer = (state, action) => {
   switch (action.type) {
     case GET_PLAYERS:
       return {
@@ -81,3 +81,4 @@ export default (state, action) => {
       return state;
   }
 };
+export default playerReducer;
